@@ -1,0 +1,128 @@
+A rray vs Lists
+
+Array :
+ - Single block of memory
+ - elements of uniform type
+ - size of seq is fixed in advance
+ - indexing is fast
+ - access seq[i] in constant time for any i
+ - compute offset from start of memory block
+ - inserting between seq[i] and seq[i+1] is expensive
+ 
+inserting is expensive as shifting the elements is expensive
+contraction is also expensive
+
+Lists:
+ - values scattered in memory
+ - each element points to the next -  linked list
+ - flexible size
+ - follows i links to access seq[i]
+ - cost proportional to i
+ - inserting or deleting an element is easy
+ - elements can be of different types
+ 
+ exchange seq[i] and seq[j]
+  - takes constant time in array, linear time in lists
+ delete seq[i] or insert v after seq[i]
+  - takes constant time in lists(if we are already at seq[i])
+  - linear time in array(due to shifting)
+  
+Binary Search:
+
+ - Sorted search
+ - compare v with the midpoint of seq
+ - check whether the middle element is greater than or less than values
+ - slice the sequence accordingly
+ - works only for arrays - because we need to look up seq[i] in constant time
+
+ Time taken:
+ - each step halves the interval to search
+ - for an interval of size 0, the answer is immediate
+ - T(n) : time to search in an sequence of size n
+ - T(0) = 1
+ - T(n) = 1+T(n/2)
+ 
+  = O(log n)
+  
+  
+ 
+EFFICIENCY:
+ - worst-case efficiency of an algorithm
+ - worst-case for searching in as sequence is when value is not found
+ - worst case is easier to calculate than "average" case or other more reasonable measures
+ 
+ O() notation: Big O
+ - T(n)=O(n) means some constant times n
+ - T(n)=O(nlogn) means some constant times nlogn
+ 
+Theoretically T(n) = O(n^k) is considered efficient 
+
+
+SELECTION SORT:
+ - advantages of sorting 
+		- finding the median value - midpoint of sorted list
+		- checking for duplicates
+		- building a frequency table of values
+ - select the next element in sorted order
+ - move it into its correct place in the final sorted list
+ - swap the minimum value to the first position instead of creating a new list
+ - repeat this 
+  
+ - Complexity : finding minimum in unsorted segment of length k requires one scan, k steps
+ - in each iteration, segment to be scanned reduces by 1
+ - So T(n) = n(n+1)/2 = O(n^2)
+ 
+ - in Python if you want something to execute faster keep the complexity below 10^7
+ 
+
+INSERTION SORT:
+ - Start building a sorted sequence with one element
+ - Pick up next unsorted element and insert it into its correct place in the already sorted sequence
+ 
+ - Inserting a new value in sorted segment of length k requires upto k steps in the worst case
+ - In each iteration, sorted segment in which to insert increased by 1
+ - T(n) = n(n-1)/2 = O(n^2)
+ 
+ Insertion Sort behaves much better than Selection sort if the list is a sorted list.
+ 
+ 
+ 
+ 
+RECURSION:
+ 
+Recursion is defined inductively.
+Many arithmetic functions are naturally defined inductively.
+ 
+eg. Factorial, Multiplication
+ 
+ - we should have a base case and an inductive step
+
+
+Recursive Insertion Sort:
+ -  base case: if list has length 1 or 0, return the list
+ -  inductive step:  
+				- inductively sort slice l[0:len(l}-1]
+				- insert l[len(l)] into this sorted slice
+				
+				
+				
+Python has a limit on the recursive computation. Usually less than 1000
+This is to ensure that we do not end up in any unhandled recursive list.
+This limit can be increased by:
+
+ import sys
+ sys.setrecursionlimit(10000)
+
+ 
+ Complexity : T(n), time to run insertion sort on lenght n
+  - Time T(n-1) to sort slice seq[0:n-1]
+  - n-1 steps to insert seq[n-1] in sorted slice
+  - T(n) = n(n-1)/2  = O(n^2)
+  
+  
+Insertion Sort is better than Selection Sort:
+ - both have O(n^2) complexity
+ - Selection sort - worst case is always present because we always have to scan the entire slice in 
+					order to find the minimum element to move into the correct position
+ - Insertion sort - will stop as soon as it finds something in the correct order
+ 

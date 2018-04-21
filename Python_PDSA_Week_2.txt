@@ -1,0 +1,58 @@
+PDSA
+
+Week2 - Lists
+
+- for immutable types, assignment creates a fresh copy of the value
+- for mutable types, assignment does not make a fresh copy, it rather points the names to the same value (eg. lists)
+		
+		list1 = [1, 2, 3, 4]
+		list2 = list1
+		list1[1] = 20
+		list2 = [1, 20, 3, 4]
+
+- So to create a copy of a list, use slice of the main list
+		
+		list1 = [1, 2, 3, 4]
+		list2 = list1[:]
+		creates a new list list2 = [1, 2, 3, 4]
+
+Digression of Equality
+		
+- x==y checks whether x and y have the same value
+- x is y checks whether x and y refer to the same object
+
+Concatenation
+
+- list1 + list2  creates a new list that points to a different object
+		
+		list1 = [1, 2, 3, 4]
+		list2 = list1
+		list1 = list1 + [9]
+		list1 is list2  -> False
+
+Summary:
+
+- List are sequences of values
+- Values need not be of uniform type
+- Lists may be nested
+- Can access value at a position, or a slice
+- Lists are mutable, can update in place
+- Assignment does not copy the value
+- Use full slice to make a copy of a list
+
+
+Week2 - Control Flow
+
+- if m%n!=0
+		- in python Empty sequences - 0,[],"" are treated as False
+		- everything else is treated as True
+		- so -
+				if m%n !=0:
+				can also be written as:
+				if m%n:
+			
+Week2 - Functions
+
+- Side Effect - Function affects the value in the other program
+			  - Can happen if the value is mutable e.g. lists
+- Names within a function has local scope
