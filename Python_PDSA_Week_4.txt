@@ -1,0 +1,30 @@
+MERGE SORT:
+  - different strategy: - divide the array into two equal parts
+						- separately sort left and right halves
+						- Combine the two sorted halves to get the full array sorted
+  - Combining sorted lists - Combine into a sorted list C
+						   - Compare first element of A and B move the smaller one to C
+						   - Move it into C
+						   - Repeat until all elements in A and B are over
+						   - Merging A and B
+  - Merge Sort - divides the list into two parts and sorts them and merges into another sorted list
+  - THIS TECHNIQUE IS CALLED "DIVIDE AND CONQUER"
+  
+
+MERGE SORT ANALYSIS:
+  - A merging algorithm that takes two sorted lists A and B, and combines them by doing a scan over all the elements
+  - O(max(m,n)) = O(n) if m~=n
+  
+  - T(n) = 1
+  - T(n) = 2T(n/2) + n
+		 = O(n log n)
+
+Variations on merge - union of two sorted list
+					- intersection
+					- list difference
+
+Limitations:
+ - creates a new array
+ - inherently recursive - recursive call and return are expensive
+ 
+  
