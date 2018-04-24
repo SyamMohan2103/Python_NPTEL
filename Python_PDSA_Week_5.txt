@@ -1,0 +1,71 @@
+FILE HANDLING:
+
+ - file handle will be created and contents will be written into or read from a buffer
+ - file = open("abc.py", "r")
+			- three modes of operation : - r - read mode
+													- w - write mode (creates a new empty file)
+													- a - append mode (updates the content of the existing file)
+ - file.read() - reads entire file
+ - file.read(12) - reads 12 characters
+ - file.readline() - reads line by line : identifies the end by a  newline '\n' character
+ - line returned contains a '\n' at the end
+ 
+ - file.write() - returns the number of characters written
+ - file.writelines() - writes a list of mulitple lines - '\n' should be added at the end of each line
+ - file.seek(5) - move the pointer to position 5 
+ 
+ - file.close() - flushed the ouput buffer and decouples file handle
+ - file.flush() - manually forces write to the disk
+ 
+ - when we reach the end of a file both the read functions will return an empty string
+ 
+ 
+STRING OPERATIONS:
+
+ - strip(), rstrip(), lstrip()
+ - s.find(pattern) - returns 1st position where the pattern exists, returns -1 if not found
+ - s.find(pattern, start, end)
+ - s.index(pattern), s.index(pattern, l, r) -  similar to find but returns a value error if the value is not found
+ 
+ - s.replace(fromstr, tostr) - returns a copy of s with each occurrence of fromstr replaced by tostr
+ - s.replace(fromstr, tostr, n) - replace atmost first n copies
+ - s itself is unchanged, strings are immutable
+ - replacing is done sequentially from left to right
+ 
+ - columns = s.split(",")  - returns a list of values 
+ - columns = s.split(",", n) - returns n chunks 
+ 
+ - join is used to join strings into a single string
+ - eg. date = "16"
+		month = "08"
+		year = "2018"
+		today = "-".join([date,month,year])
+		--->> '16-08-2018'
+
+ - s.capitalize() - returns string with first letter uppercase, rest lower
+ - s.lower() - convert all uppercase to lowercase
+ - s.upper()
+ - s.title(), s.swapcase(),. .....
+ - s.center(n) - returns string of length n with s centered, rest blank
+ - s.center(n, "*") - returns string of length n with s centered, rest with "*" instead of blank
+ - s.ljust(n), s.ljust(n,"*"), s.rjust(n), .... - similar but left/right justify s in returned string
+ 
+ - s.isalpha()
+ - s.isnumeric()
+ 
+FORMATTING PRINTED OUTPUT:
+ 
+ - format method
+ - "First: {0}, second: {1}".format(47,11)
+ ------>>> 'First : 47, second: 11'
+ - this helps to replace arguments by position in message string
+ 
+ - can also replace by name:
+ -"One: {f}, two: {s}".format(f=47, s=11)
+ ------->>> 'One: 47, two: 11'
+ 
+ - "Value: {0:3d}".format(4)
+ - 3d describes how to display the value 4
+ - d is a code which specifies that 4 should be treated as an integer value
+ - 3 is the width of the area to show 4
+ ------->>> 'Value:    4'
