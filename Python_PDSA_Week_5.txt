@@ -3,8 +3,8 @@ FILE HANDLING:
  - file handle will be created and contents will be written into or read from a buffer
  - file = open("abc.py", "r")
 			- three modes of operation : - r - read mode
-													- w - write mode (creates a new empty file)
-													- a - append mode (updates the content of the existing file)
+	          			             - w - write mode (creates a new empty file)
+						     - a - append mode (updates the content of the existing file)
  - file.read() - reads entire file
  - file.read(12) - reads 12 characters
  - file.readline() - reads line by line : identifies the end by a  newline '\n' character
